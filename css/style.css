@@ -1,0 +1,239 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	font-family: "Sora", sans-serif;
+	color: #ffffff;
+	background: #0f172a;
+	padding: 2rem;
+}
+
+.layout {
+	width: min(1200px, 100%);
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.5rem;
+	min-height: calc(100vh - 4rem);
+}
+
+.panel {
+	border-radius: 24px;
+	padding: 1.5rem;
+	position: relative;
+	overflow: hidden;
+}
+
+.glass {
+	background: rgba(255, 255, 255, 0.14);
+	border: 1px solid rgba(255, 255, 255, 0.24);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.panel h1,
+.panel h2 {
+	margin: 0;
+	font-family: "Space Grotesk", sans-serif;
+	letter-spacing: 0.3px;
+}
+
+.subtitle {
+	margin: 0.5rem 0 1.25rem;
+	color: #dfdfdfbb;
+	font-weight: 500;
+}
+
+#bikeForm {
+	display: grid;
+	gap: 0.9rem;
+}
+
+.field-group {
+	display: grid;
+	gap: 0.35rem;
+}
+
+label {
+	font-size: 0.9rem;
+	color: #ffffffbb;
+	font-weight: 600;
+}
+
+input {
+	width: 100%;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	background: rgba(255, 255, 255, 0.08);
+	color: #ffffff;
+	border-radius: 12px;
+	font-size: 0.95rem;
+	padding: 0.75rem 0.8rem;
+	outline: none;
+	transition: border-color 0.2s ease;
+}
+
+input:focus {
+	border-color: rgba(255, 255, 255, 0.45);
+}
+
+input::placeholder {
+	color: #ffffffbb;
+}
+
+.grid-two {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.75rem;
+}
+
+.image-preview {
+	min-height: 170px;
+	border-radius: 14px;
+	border: 1px dashed rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.1);
+	display: grid;
+	place-items: center;
+	position: relative;
+}
+
+.image-preview img {
+	width: 100%;
+	height: 168px;
+	object-fit: cover;
+	display: none;
+}
+
+.preview-placeholder {
+	color: #ffffffbb;
+	font-size: 0.9rem;
+}
+
+.btn-primary {
+	border: 0;
+	border-radius: 12px;
+	padding: 0.85rem 1rem;
+	font-weight: 700;
+	font-family: "Space Grotesk", sans-serif;
+	letter-spacing: 0.4px;
+	color: #ffffff;
+	background: #16a34a;
+	cursor: pointer;
+	transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-primary:hover {
+	transform: translateY(-2px);
+	filter: brightness(1.05);
+}
+
+.form-message {
+	margin: 0;
+	min-height: 1.2rem;
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+
+.form-message.error {
+	color: #ef4444;
+}
+
+.form-message.ok {
+	color: #34d399;
+}
+
+.list-panel {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	gap: 1rem;
+}
+
+.list-head {
+	display: grid;
+	gap: 0.8rem;
+}
+
+.bike-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+	display: grid;
+	gap: 0.85rem;
+}
+
+.bike-item {
+	display: grid;
+	grid-template-columns: 96px 1fr;
+	gap: 0.8rem;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.12);
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	border-radius: 14px;
+	padding: 0.65rem;
+	animation: cardIn 0.35s ease both;
+}
+
+.bike-item img,
+.bike-thumb-placeholder {
+	width: 96px;
+	height: 96px;
+	border-radius: 10px;
+	object-fit: cover;
+}
+
+.bike-thumb-placeholder {
+	display: grid;
+	place-items: center;
+	font-size: 0.78rem;
+	color: #ffffffbb;
+	background: rgba(255, 255, 255, 0.08);
+}
+
+.bike-content h3 {
+	margin: 0 0 0.25rem;
+	font-family: "Space Grotesk", sans-serif;
+	font-size: 1rem;
+}
+
+.bike-content p {
+	margin: 0.14rem 0;
+	font-size: 0.85rem;
+	color: #ffffffbb;
+}
+
+.empty-state {
+	margin: 0;
+	color: #ffffffbb;
+	font-weight: 600;
+}
+
+@keyframes cardIn {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 980px) {
+	body {
+		padding: 1rem;
+	}
+
+	.layout {
+		grid-template-columns: 1fr;
+		min-height: auto;
+	}
+
+	.grid-two {
+		grid-template-columns: 1fr;
+	}
+}

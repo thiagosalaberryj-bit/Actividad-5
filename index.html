@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Registro de Bicicletas</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+	<main class="layout">
+		<section class="panel glass form-panel" aria-labelledby="formTitle">
+			<h1 id="formTitle">Registro de Bicicleta</h1>
+			<p class="subtitle">Completa los datos del usuario y la bicicleta.</p>
+
+			<form id="bikeForm" novalidate>
+				<div class="field-group">
+					<label for="userName">Nombre del usuario</label>
+					<input id="userName" name="userName" type="text" placeholder="Ej: Andrea Rojas" required />
+				</div>
+
+				<div class="field-group">
+					<label for="userEmail">Email</label>
+					<input id="userEmail" name="userEmail" type="email" placeholder="usuario@correo.com" required />
+				</div>
+
+				<div class="field-group">
+					<label for="serialNumber">Numero de serie de la bicicleta</label>
+					<input id="serialNumber" name="serialNumber" type="text" placeholder="SER-2026-0001" required />
+				</div>
+
+				<div class="grid-two">
+					<div class="field-group">
+						<label for="brand">Marca</label>
+						<input id="brand" name="brand" type="text" placeholder="Trek" required />
+					</div>
+
+					<div class="field-group">
+						<label for="model">Modelo</label>
+						<input id="model" name="model" type="text" placeholder="Marlin 7" required />
+					</div>
+				</div>
+
+				<div class="field-group">
+					<label for="bikeImage">Imagen</label>
+					<input id="bikeImage" name="bikeImage" type="file" accept="image/*" required />
+				</div>
+
+				<div id="imagePreview" class="image-preview" aria-live="polite">
+					<span class="preview-placeholder">Aqui aparecera la vista previa</span>
+					<img id="previewImage" alt="Vista previa de la bicicleta" />
+				</div>
+
+				<button type="submit" class="btn-primary">Guardar registro</button>
+				<p id="formMessage" class="form-message" aria-live="polite"></p>
+			</form>
+		</section>
+
+		<section class="panel glass list-panel" aria-labelledby="listTitle">
+			<div class="list-head">
+				<h2 id="listTitle">Registros</h2>
+				<input
+					id="searchInput"
+					type="search"
+					placeholder="Buscar por nombre, serie, marca o modelo"
+					aria-label="Buscar registros"
+				/>
+			</div>
+
+			<ul id="bikeList" class="bike-list" aria-live="polite"></ul>
+			<p id="emptyState" class="empty-state">No hay bicicletas registradas aun.</p>
+		</section>
+	</main>
+
+</body>
+</html>

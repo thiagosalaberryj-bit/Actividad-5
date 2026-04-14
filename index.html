@@ -7,6 +7,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
 	<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -61,18 +62,78 @@
 		<section class="panel glass list-panel" aria-labelledby="listTitle">
 			<div class="list-head">
 				<h2 id="listTitle">Registros</h2>
-				<input
-					id="searchInput"
-					type="search"
-					placeholder="Buscar por nombre, serie, marca o modelo"
-					aria-label="Buscar registros"
-				/>
 			</div>
 
 			<ul id="bikeList" class="bike-list" aria-live="polite"></ul>
 			<p id="emptyState" class="empty-state">No hay bicicletas registradas aun.</p>
 		</section>
 	</main>
+
+	<div id="editModal" class="modal" aria-hidden="true">
+		<div class="modal-content glass">
+			<button class="modal-close" type="button" data-modal-close="editModal" aria-label="Cerrar">X</button>
+			<h3>Editar registro</h3>
+			<form id="editForm" novalidate>
+				<div class="field-group">
+					<label for="editUserName">Nombre del usuario</label>
+					<input id="editUserName" name="userName" type="text" required />
+				</div>
+
+				<div class="field-group">
+					<label for="editUserEmail">Email</label>
+					<input id="editUserEmail" name="userEmail" type="email" required />
+				</div>
+
+				<div class="field-group">
+					<label for="editSerialNumber">Numero de serie</label>
+					<input id="editSerialNumber" name="serialNumber" type="text" required />
+				</div>
+
+				<div class="grid-two">
+					<div class="field-group">
+						<label for="editBrand">Marca</label>
+						<input id="editBrand" name="brand" type="text" required />
+					</div>
+					<div class="field-group">
+						<label for="editModel">Modelo</label>
+						<input id="editModel" name="model" type="text" required />
+					</div>
+				</div>
+
+				<div class="field-group">
+					<label for="editBikeImage">Imagen</label>
+					<input id="editBikeImage" name="bikeImage" type="file" accept="image/*" />
+				</div>
+
+				<div class="image-preview" aria-live="polite">
+					<span id="editPreviewPlaceholder" class="preview-placeholder">Sin vista previa</span>
+					<img id="editPreviewImage" alt="Vista previa de edicion" />
+				</div>
+
+				<div class="modal-actions">
+					<button class="btn-primary" type="submit">Guardar cambios</button>
+					<button class="btn-secondary" type="button" data-modal-close="editModal">Cancelar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div id="deleteModal" class="modal" aria-hidden="true">
+		<div class="modal-content glass">
+			<button class="modal-close" type="button" data-modal-close="deleteModal" aria-label="Cerrar">X</button>
+			<h3>Eliminar registro</h3>
+			<p id="deleteMessage" class="subtitle">Esta accion no se puede deshacer.</p>
+			<div class="modal-actions">
+				<button id="confirmDeleteBtn" class="btn-danger" type="button">Eliminar</button>
+				<button class="btn-secondary" type="button" data-modal-close="deleteModal">Cancelar</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+	<script src="js/modals.js"></script>
+	<script src="js/validacion.js"></script>
+	<script src="js/carga.js"></script>
 
 </body>
 </html>
